@@ -294,7 +294,7 @@ const QuizSection = () => {
               </h2>
               
               <p className="text-xl text-gray-600 mb-8">
-                Based on your 20 responses, here's your personalized AI learning profile
+                Based on your 20 responses, here&apos;s your personalized AI learning profile
               </p>
             </div>
 

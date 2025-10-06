@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true
+  },
+  experimental: {
+    // Remove any experimental image settings that might conflict
   }
 };
 
