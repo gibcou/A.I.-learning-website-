@@ -4,11 +4,9 @@ const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
-  experimental: {
-    // Remove any experimental image settings that might conflict
-  }
+  distDir: 'out',
 };
 
 export default nextConfig;
