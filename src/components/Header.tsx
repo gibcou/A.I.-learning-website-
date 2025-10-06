@@ -2,9 +2,22 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useAuth } from '@/hooks/useAuth';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      router.push('/login');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
 
   return (
     <header className="bg-white shadow-sm border-b border-gray-100">
@@ -20,39 +33,52 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/courses" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Courses
-            </Link>
-            <Link href="/quiz" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Take Quiz
-            </Link>
-            <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
-              About
-            </Link>
-            <Link href="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Pricing
-            </Link>
-            <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Contact
-            </Link>
-          </nav>
-
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Link 
-              href="/login" 
-              className="text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Log In
-            </Link>
-            <Link 
-              href="/signup" 
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-medium"
-            >
-              Start Learning
-            </Link>
+          {/* Desktop Navigation - moved to right side */}
+          <div className="hidden md:flex items-center space-x-8">
+            {user ? (
+              <>
+                {/* User Navigation */}
+                <Link href="/dashboard?tab=courses" className="text-gray-600 hover:text-gray-900 transition-colors">
+                  My Courses
+                </Link>
+                <Link href="/dashboard?tab=portfolio" className="text-gray-600 hover:text-gray-900 transition-colors">
+                  My Portfolio
+                </Link>
+                <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
+                  Home
+                </Link>
+                <button 
+                  onClick={handleLogout}
+                  className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link href="/quiz" className="text-gray-600 hover:text-gray-900 transition-colors">
+                  Take Quiz
+                </Link>
+                <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
+                  About
+                </Link>
+                <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
+                  Contact
+                </Link>
+                <Link 
+                  href="/login" 
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  Log In
+                </Link>
+                <Link 
+                  href="/signup" 
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-medium"
+                >
+                  Start Learning
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -76,30 +102,47 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-100">
-              <Link href="/courses" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
-                Courses
-              </Link>
-              <Link href="/quiz" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
-                Take Quiz
-              </Link>
-              <Link href="/about" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
-                About
-              </Link>
-              <Link href="/pricing" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
-                Pricing
-              </Link>
-              <Link href="/contact" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
-                Contact
-              </Link>
-              <Link href="/login" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
-                Log In
-              </Link>
-              <Link 
-                href="/signup" 
-                className="block mx-3 mt-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-center font-medium"
-              >
-                Start Learning
-              </Link>
+              {user ? (
+                <>
+                  {/* User Navigation for Mobile */}
+                  <Link href="/dashboard?tab=courses" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
+                    My Courses
+                  </Link>
+                  <Link href="/dashboard?tab=portfolio" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
+                    My Portfolio
+                  </Link>
+                  <Link href="/" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
+                    Home
+                  </Link>
+                  <button 
+                    onClick={handleLogout}
+                    className="mx-3 mt-4 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors w-full"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link href="/quiz" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
+                    Take Quiz
+                  </Link>
+                  <Link href="/about" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
+                    About
+                  </Link>
+                  <Link href="/contact" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
+                    Contact
+                  </Link>
+                  <Link href="/login" className="block px-3 py-2 text-gray-600 hover:text-gray-900">
+                    Log In
+                  </Link>
+                  <Link 
+                    href="/signup" 
+                    className="block mx-3 mt-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-center font-medium"
+                  >
+                    Start Learning
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         )}

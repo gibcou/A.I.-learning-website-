@@ -1,42 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-
-interface StatItemProps {
-  value: string;
-  label: string;
-  description: string;
-  icon: React.ReactNode;
-  color: string;
-}
-
-function StatItem({ value, label, description, icon, color }: StatItemProps) {
-  return (
-    <div className="text-center group card-hover bg-white rounded-3xl p-8">
-      <div className={`inline-flex items-center justify-center w-16 h-16 ${color} rounded-2xl mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
-        {icon}
-      </div>
-      <div className="text-4xl md:text-5xl font-black gradient-text mb-3">
-        {value}
-      </div>
-      <div className="text-gray-900 font-bold text-lg mb-2">
-        {label}
-      </div>
-      <div className="text-gray-600 text-sm font-medium">
-        {description}
-      </div>
-    </div>
-  );
-}
+import { useEffect } from 'react';
 
 export default function StatsSection() {
-  const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          // Animation trigger logic can be added here if needed
         }
       },
       { threshold: 0.1 }
@@ -59,10 +30,11 @@ export default function StatsSection() {
       value: "1.2M+",
       label: "Active Learners",
       description: "Professionals transforming their careers",
-      color: "bg-gradient-to-r from-indigo-500 to-purple-500",
+      color: "bg-gradient-to-br from-blue-600 to-indigo-700",
+      bgColor: "from-blue-50 to-indigo-100",
       icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+        <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
         </svg>
       )
     },
@@ -70,10 +42,11 @@ export default function StatsSection() {
       value: "10M+", 
       label: "Learning Hours",
       description: "Content consumed and skills mastered",
-      color: "bg-gradient-to-r from-purple-500 to-pink-500",
+      color: "bg-gradient-to-br from-indigo-600 to-purple-700",
+      bgColor: "from-indigo-50 to-purple-100",
       icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       )
     },
@@ -81,10 +54,11 @@ export default function StatsSection() {
       value: "121K+",
       label: "AI Prompts",
       description: "Created by our community members",
-      color: "bg-gradient-to-r from-pink-500 to-red-500",
+      color: "bg-gradient-to-br from-pink-500 to-red-500",
+      bgColor: "from-pink-50 to-red-100",
       icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
         </svg>
       )
     },
@@ -92,10 +66,11 @@ export default function StatsSection() {
       value: "40%",
       label: "Income Increase",
       description: "Average salary boost within 6 months",
-      color: "bg-gradient-to-r from-red-500 to-orange-500",
+      color: "bg-gradient-to-br from-red-500 to-orange-500",
+      bgColor: "from-red-50 to-orange-100",
       icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
         </svg>
       )
     }
@@ -128,18 +103,15 @@ export default function StatsSection() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 animate-fade-in-up stagger-2">
           {stats.map((stat, index) => (
-            <div
-              key={index}
-              className={`transform transition-all duration-1000 ${
-                isVisible 
-                  ? 'translate-y-0 opacity-100' 
-                  : 'translate-y-10 opacity-0'
-              }`}
-              style={{ transitionDelay: `${index * 200}ms` }}
-            >
-              <StatItem {...stat} />
+            <div key={index} className="text-center p-8 bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border border-slate-200/50 card-hover hover-lift">
+              <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg animate-pulse-slow" style={{animationDelay: `${index * 0.3}s`}}>
+                <span className="text-2xl">{stat.icon}</span>
+              </div>
+              <div className="text-4xl font-black text-slate-900 mb-2 animate-scale-in" style={{animationDelay: `${index * 0.1}s`}}>{stat.value}</div>
+              <div className="text-lg font-bold text-slate-700 mb-2">{stat.label}</div>
+              <div className="text-sm text-slate-600 font-medium">{stat.description}</div>
             </div>
           ))}
         </div>

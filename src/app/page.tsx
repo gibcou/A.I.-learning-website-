@@ -1,6 +1,7 @@
 import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import StatsSection from '@/components/StatsSection';
+import SuccessStoriesSection from '@/components/SuccessStoriesSection';
 import CertificateSection from '@/components/CertificateSection';
 import ChallengeSection from '@/components/ChallengeSection';
 import FAQSection from '@/components/FAQSection';
@@ -8,14 +9,15 @@ import CTASection from '@/components/CTASection';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <main>
       <HeroSection />
       <FeaturesSection />
       <StatsSection />
+      <SuccessStoriesSection />
       <CertificateSection />
       <ChallengeSection />
       <FAQSection />
       <CTASection />
-    </div>
+    </main>
   );
 }

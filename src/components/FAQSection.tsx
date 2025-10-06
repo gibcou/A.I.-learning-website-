@@ -144,14 +144,14 @@ export default function FAQSection() {
                 Our support team is here to help you get started with AI Master
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:from-purple-600 hover:to-indigo-600 transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center group">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <button className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-12 py-5 rounded-full font-black text-xl hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105 inline-flex items-center group border-4 border-purple-200/50">
                   Contact Support
-                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  <svg className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </button>
-                <button className="border-2 border-purple-200 text-purple-700 px-10 py-4 rounded-full font-bold text-lg hover:border-purple-300 hover:bg-purple-50 transition-all duration-300">
+                <button className="border-3 border-purple-300 text-purple-700 px-12 py-5 rounded-full font-bold text-xl hover:border-purple-400 hover:bg-purple-50 transition-all duration-300 backdrop-blur-sm">
                   Browse Help Center
                 </button>
               </div>

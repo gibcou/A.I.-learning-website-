@@ -82,57 +82,87 @@ export default function CertificateSection() {
           {/* Certificate Visual */}
           <div className="relative">
             {/* Main Certificate */}
-            <div className="bg-white rounded-3xl shadow-2xl p-8 transform rotate-2 hover:rotate-0 transition-all duration-500 hover:scale-105 border border-gray-100">
-              <div className="border-4 border-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl p-8 bg-gradient-to-br from-indigo-50 to-purple-50">
-                <div className="text-center">
+            <div className="bg-gradient-to-br from-white via-blue-50 to-indigo-50 rounded-3xl shadow-2xl p-8 transform rotate-2 hover:rotate-0 transition-all duration-500 hover:scale-105 border-2 border-gradient-to-r from-gold-400 to-amber-500">
+              <div className="border-8 border-double border-gradient-to-r from-amber-400 via-yellow-500 to-gold-500 rounded-2xl p-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
+                {/* Elegant background pattern */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600 to-purple-600"></div>
+                  <div className="absolute top-4 left-4 w-8 h-8 border-2 border-blue-300 rounded-full"></div>
+                  <div className="absolute top-8 right-8 w-6 h-6 border-2 border-purple-300 rounded-full"></div>
+                  <div className="absolute bottom-4 left-8 w-4 h-4 border-2 border-indigo-300 rounded-full"></div>
+                  <div className="absolute bottom-8 right-4 w-10 h-10 border-2 border-amber-300 rounded-full"></div>
+                </div>
+                
+                <div className="text-center relative z-10">
                   {/* Certificate Header */}
-                  <div className="w-20 h-20 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-24 h-24 bg-gradient-to-br from-amber-400 via-yellow-500 to-gold-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl border-4 border-white">
+                    <svg className="w-12 h-12 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   </div>
                   
-                  <h3 className="text-2xl font-black text-gray-900 mb-2">Certificate of Excellence</h3>
-                  <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-4 rounded-full"></div>
-                  <p className="text-indigo-600 font-bold text-lg mb-6">AI Mastery Program</p>
+                  <h3 className="text-3xl font-black text-slate-800 mb-3 tracking-wide">Certificate of Excellence</h3>
+                  <div className="w-24 h-1.5 bg-gradient-to-r from-amber-400 via-yellow-500 to-gold-500 mx-auto mb-6 rounded-full shadow-sm"></div>
+                  <p className="text-blue-700 font-bold text-xl mb-8 tracking-wide">AI Mastery Program</p>
                   
-                  <div className="text-sm text-gray-600 mb-2 font-medium">This certifies that</div>
-                  <div className="text-2xl font-black text-gray-900 mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                  <div className="text-sm text-slate-600 mb-3 font-semibold tracking-wider uppercase">This certifies that</div>
+                  <div className="text-3xl font-black text-slate-800 mb-6 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent tracking-wide">
                     Sarah Johnson
                   </div>
-                  <div className="text-sm text-gray-600 mb-8 leading-relaxed">
+                  <div className="text-base text-slate-700 mb-10 leading-relaxed font-medium max-w-md mx-auto">
                     has successfully completed the comprehensive AI Master course<br />
-                    and demonstrated proficiency in artificial intelligence
+                    and demonstrated exceptional proficiency in artificial intelligence
+                  </div>
+                  
+                  {/* Signature Lines */}
+                  <div className="flex justify-between items-end mb-6 px-8">
+                    <div className="text-center">
+                      <div className="w-32 h-0.5 bg-slate-400 mb-2"></div>
+                      <div className="text-xs text-slate-600 font-semibold">Director Signature</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-32 h-0.5 bg-slate-400 mb-2"></div>
+                      <div className="text-xs text-slate-600 font-semibold">Date of Completion</div>
+                    </div>
                   </div>
                   
                   {/* Certificate Footer */}
-                  <div className="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-gray-200">
+                  <div className="flex justify-between items-center text-xs text-slate-600 pt-6 border-t-2 border-gradient-to-r from-blue-200 to-purple-200">
                     <div className="text-left">
-                      <div className="font-bold text-indigo-600">AI Master</div>
-                      <div>Certificate ID: #AM2024-001</div>
+                      <div className="font-bold text-blue-700 text-sm">AI Master Academy</div>
+                      <div className="text-slate-500">Certificate ID: #AM2024-001</div>
                     </div>
                     <div className="text-right">
-                      <div className="font-bold">December 2024</div>
-                      <div>Verified & Authentic</div>
+                      <div className="font-bold text-slate-700">December 2024</div>
+                      <div className="text-slate-500">Verified & Authentic</div>
+                    </div>
+                  </div>
+                  
+                  {/* Official Seal */}
+                  <div className="absolute top-6 right-6 w-16 h-16 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+                    <div className="text-center">
+                      <div className="text-white text-xs font-bold leading-tight">OFFICIAL</div>
+                      <div className="text-white text-xs font-bold leading-tight">SEAL</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Floating Achievement Badges */}
-            <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg animate-bounce">
-              <span className="text-2xl">🏆</span>
+            {/* Enhanced Floating Achievement Badges */}
+            <div className="absolute -top-8 -right-8 w-20 h-20 bg-gradient-to-br from-amber-400 via-yellow-500 to-gold-600 rounded-full flex items-center justify-center shadow-xl animate-bounce border-4 border-white">
+              <span className="text-3xl drop-shadow-lg">🏆</span>
             </div>
-            <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-xl">✨</span>
+            <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center shadow-xl border-4 border-white">
+              <span className="text-2xl drop-shadow-lg">✨</span>
             </div>
-            <div className="absolute top-1/2 -right-8 w-10 h-10 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-lg">🎯</span>
+            <div className="absolute top-1/2 -right-10 w-14 h-14 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center shadow-xl border-4 border-white">
+              <span className="text-xl drop-shadow-lg">🎯</span>
             </div>
             
-            {/* Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-200/30 to-purple-200/30 rounded-3xl filter blur-3xl -z-10 transform scale-110"></div>
+            {/* Enhanced Background Glow */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-200/40 via-indigo-200/40 to-purple-200/40 rounded-3xl filter blur-3xl -z-10 transform scale-110"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-200/20 to-gold-200/20 rounded-3xl filter blur-2xl -z-10 transform scale-105"></div>
           </div>
         </div>
         
